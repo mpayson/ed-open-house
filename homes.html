@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+  <title>Intro to SceneView - Create a 3D map - 4.9</title>
+  <style>
+    html,
+    body,
+    #viewDiv {
+      padding: 0;
+      margin: 0;
+      height: 100%;
+      width: 100%;
+    }
+  </style>
+
+  <link rel="stylesheet" href="https://js.arcgis.com/4.9/esri/css/main.css">
+  <script src="https://js.arcgis.com/4.9/"></script>
+
+  <script>
+    let map, view, createLine;
+
+    const locations = ['maine', 'exeter', 'yale', 'redlands']
+    const destinations = [
+      {
+        target: [-70.218366, 43.714468],
+        zoom: 13
+      },
+      {
+        target: [-70.950391, 42.979544],
+        zoom: 17
+      },
+      {
+        target: [-72.927162, 41.310017],
+        zoom: 17
+      },
+      {
+        target: [-117.195639, 34.056706],
+        zoom: 13
+      }
+    ]
+
+    function goToLocation(location){
+      if(!map && ! view) return;
+      locationIndex = locations.findIndex(l => l === location);
+
+      if(destinations[locationIndex]){
+        view.goTo(destinations[locationIndex], {duration: 10000}) 
+        if(locationIndex > 0){
+          createLine(destinations[locationIndex-1].target, destinations[locationIndex].target)
+        }
+      }
+    }
+
+    require([
+      "esri/Map",
+      "esri/views/SceneView",
+      "esri/geometry/Polyline",
+      "esri/Graphic"
+    ], function(Map, SceneView, Polyline, Graphic) {
+
+      map = new Map({
+        basemap: "hybrid",
+        ground: "world-elevation"
+      });
+
+      view = new SceneView({
+        container: "viewDiv",
+        map: map,
+        scale: 50000000,
+        center: [-101.17, 21.78],
+        alphaCompositingEnabled: true,
+        environment: {
+          starsEnabled: false,
+          atmosphereEnabled: false,
+          background: {
+            type: 'color',
+            color: [255, 252, 244, 0]
+          }
+        }
+      });
+      view.ui.empty("top-left");
+
+      createLine = (startCoords, endCoords) => {
+        console.log(startCoords, endCoords);
+        const polyline = new Polyline({
+          paths: [
+            startCoords,
+            endCoords
+          ]
+        })
+        
+        const graphic = new Graphic({
+          geometry: polyline,
+          symbol: {
+            type: "simple-line",  // autocasts as SimpleLineSymbol()
+            color: [226, 119, 40],
+            width: 4
+          }
+        })
+
+        view.graphics.add(graphic)
+      }
+    
+    });
+
+  </script>
+</head>
+
+<body>
+  <div id="viewDiv"></div>
+</body>
+</html>

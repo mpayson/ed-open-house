@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script src="js/d3.layout.cloud.js"></script>
+<head>
+    <title>Word Cloud Example</title>
+</head>
+<body>
+
+</body>
+<script>
+    // var frequency_list = [
+    //   {"text": "AirBnB", "size": "80"}, {"text": "Stripe", "size": "60"}, {"text": "Snapchat", "size": "70"}, {"text": "Twilio", "size": "60"}, {"text": "Palantir", "size": "50"}, {"text": "DroneDeploy", "size": "40"}, {"text": "Uber", "size": "80"}, {"text": "Lyft", "size": "70"}, {"text": "Bird", "size": "50"}, {"text": "Lime", "size": "50"}
+    // ]
+    const wordList = ["AirBnb", "Halo Top", "Noodle.ai", "Robinhood", "Ripple", "Coinbase", "Allbirds", "Aurora", "Zoox", "Pony.ai", "Foam", "Stripe", "Snapchat", "Twilio", "Palantir", "DroneDeploy", "Uber", "Lyft", "Bird", "Lyme"]
+    const frequencyList = wordList.map(d => ({
+      text: d, size: 10 + Math.random() * 90, test: "haha"
+    }))
+
+    var color = d3.scale.linear()
+      .range(["#453C74", "#7556B2", "#4574C1", "#B1F7E7", "#2F9FEA"]);
+    
+    d3.layout.cloud().size([800, 300])
+    .words(frequencyList)
+    .padding(5)
+    .rotate(0)
+    .fontSize(function(d) { return d.size; })
+    .on("end", draw)
+    .start();
+
+    
+    // .padding(5)
+    // .rotate(function() { return ~~(Math.random() * 2) * 90; })
+    // .font("Impact")
+    // .fontSize(function(d) { return d.size; })
+    // .on("end", draw);
+
+    function draw(words) {
+        d3.select("body").append("svg")
+                .attr("width", 850)
+                .attr("height", 350)
+                .attr("class", "wordcloud")
+                .append("g")
+                // without the transform, words words would get cutoff to the left and top, they would
+                // appear outside of the SVG area
+                .attr("transform", "translate(320,200)")
+                .selectAll("text")
+                .data(words)
+                .enter().append("text")
+                .style("font-size", function(d) { return d.size + "px"; })
+                .style("fill", function(d, i) { return color(i); })
+                .attr("transform", function(d) {
+                    return "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")";
+                })
+                .text(function(d) { return d.text; });
+    }
+</script>
+
+<div style="width: 40%;">
+  <div id></div>
+</div>
+
+
+</html>

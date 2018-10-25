@@ -1,0 +1,324 @@
+<!doctype html>
+<!-- Copyright (c) 2018 Environmental Systems Research Institute, Inc.
+     Apache-2.0 -->
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/devsummit-2018.css">
+    
+    <link rel="stylesheet" href="https://js.arcgis.com/4.9/esri/css/main.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+    
+    <style>
+      .container{
+          display: flex;
+      }
+      .container.center{
+        align-items: center;
+        justify-content: center;
+      }
+      .col{
+          flex: 1;
+      }
+      .reveal .slides section .fragment.step-fade-in-then-out {
+        opacity: 0;
+        display: none; }
+      .reveal .slides section .fragment.step-fade-in-then-out.current-fragment {
+        opacity: 1;
+        display: inline; }
+
+      .replace-fragment {
+        position:relative;
+        margin-left: auto;
+        margin-right: auto;
+        left: 0;
+        right: 0;
+      }
+      .pres-img{
+        width: auto;
+        height: 35vh;
+        margin: 0 !important;
+      }
+      .pres-chrt{
+        width: auto;
+        height: 45vh;
+      }
+      .fill-slide{
+        height: 75vh;
+        width: 85vw;
+      }
+    </style>
+
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section data-background="img/2018/devsummit/bg-1.png" data-background-size="cover" style="padding-left: 80px;">
+					<h1 style="text-align: left; font-size: 80px;">Esri & Startups</h1>
+					<p style="text-align: left; font-size: 30px;">Max Payson</p>
+    			<p style="text-align: left; font-size: 30px;">slides: <a href="http://bit.ly/abc123"><code>http://bit.ly/abc123</code></a></p>
+				</section>
+				<section data-background="img/2018/devsummit/bg-2.png">
+          <section>
+            <h2>About Me</h2>
+          </section>
+          <section>
+            <div class="container center">
+              <div class="col">
+                  <div style="position:relative" >
+                    <div class="fragment step-fade-in-then-out replace-fragment" id="maine">
+                        <h3>Maine</h5>
+                        <img class="pres-img" src="img/personal/foreside.jpg"/>
+                        <img class="pres-img" src="img/personal/firstjob.jpeg"/>
+                        <img class="pres-img" src="img/personal/morehomework.jpg"/>
+                      </div>
+                      <div class="fragment step-fade-in-then-out replace-fragment" id="exeter">
+                        <h3>Exeter</h5>
+                        <img class="pres-img" src="img/personal/harkness.jpg"/>
+                        <img class="pres-img" src="img/personal/exeter.jpg"/>
+                      </div>
+                      <div class="fragment step-fade-in-then-out replace-fragment" id="yale">
+                        <h3>Yale</h5>
+                        <img class="pres-img" src="img/personal/yale.jpg"/>
+                        <img class="pres-img" src="img/personal/mspec"/>
+                      </div>
+                      <div class="fragment step-fade-in-then-out replace-fragment" id="redlands">
+                        <h3>Redlands!</h3>
+                      </div>
+                    </div>
+              </div>
+              <div class="col">
+                  <iframe id="mapframe" src="homes.html" style="height: 92vh; width: 50vw"></iframe> 
+              </div>
+            </div>
+            <p style="position: absolute; left: 0; bottom: 10px; font-size: 1rem">
+              Image Credits:
+              <a href="https://www.google.com/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&ved=2ahUKEwj74M37-p_eAhUQJTQIHYAXAegQjRx6BAgBEAU&url=https%3A%2F%2Fme.usharbors.com%2Fharbor-guide%2Ffalmouth-foreside&psig=AOvVaw17jINe93TQllmLTiivTFjv&ust=1540500825738128">Foreside</a>
+              , <a href="https://www.exeter.edu/exeter-difference/how-youll-learn">Harkness Table</a>
+              , <a href="https://www.omnihotels.com/hotels/new-haven-yale/things-to-do/area-attractions/yale-university-visitor-center">Yale</a>
+            </p>
+          </section>
+        </section>
+        <section data-background="img/2018/devsummit/bg-2.png">
+          <section>
+            <h2>Startups</h2>
+          </section>
+          <section>
+            <div id="buzz"></div>
+          </section>
+          <section>
+              <h2>The Market</h2>
+              <img class="pres-chrt" src="img/personal/vcdeals.png"/>
+              <img class="pres-chrt" src="img/personal/valuation.png"/>
+              <p style="position: absolute; left: 0; bottom: 0; font-size: 1rem">
+                <a href="https://pitchbook.com/news/articles/16-charts-that-illustrate-current-us-venture-capital-trends">Image Credits</a>
+              </p>
+            </section>
+          <section>
+            <div id="startups"></div>
+          </section>
+          <section>
+            <h2>Three Challenges</h2>
+            <div class="container">
+              <div style="flex: 2">
+                Technology
+                <img class="pres-img" src="img/personal/svfire.jpg"/>
+              </div>
+              <div style="flex: 2">
+                Go-To-Market
+                <img class="pres-img" src="img/personal/svhack.jpg"/>
+              </div>
+              <div style="flex: 2">
+                Resources & Support
+                <img class="pres-img" src="img/personal/svtriangles.jpg"/>
+              </div>
+            </div>
+            <p style="position: absolute; left: 0; bottom: -10; font-size: 1rem">
+              Image Credits:
+              <a href="https://gizmodo.com/silicon-valley-had-exactly-the-right-ending-this-season-1711379233">Fire</a>
+              , <a href="http://siliconvalleyism.com/silicon-valley-image.php?id=119">Triangles</a>
+              , <a href="https://www.thewrap.com/silicon-valley-fact-check-can-you-really-hack-a-major-tech-conference/">Elevator</a>
+            </p>
+          </section>
+        </section>
+        <section data-background="img/2018/devsummit/bg-3.png">
+          <section>
+            <h2>Technology</h2>
+          </section>
+          <section data-markdown>
+            <textarea data-template>
+              ## Challenges
+              * Visualization
+              * Location services and analysis
+              * Managing and hosting data
+              * Security
+            </textarea>
+          </section>
+          <section>
+            <h2>Visualization</h2>
+            <p><a target="__blank" href="https://developers.arcgis.com/javascript/latest/sample-code/sandbox/index.html?sample=intro-mapview">A quick demo!</a></p>
+          </section>
+          <section>
+            <h2>Location services</h2>
+            <video class="fill-slide" playsinline="" controls="controls" poster="https://s3.amazonaws.com/media-p.slid.es/videos/308165/HfvzXf2a/realtime_thumb_00001.jpg" data-autoplay="" loop="loop" data-paused-by-reveal="" data-lazy-loaded="" controlslist="nodownload" src="https://s3.amazonaws.com/media-p.slid.es/videos/308165/HfvzXf2a/realtime.mp4"></video>
+          </section>
+          <section>
+            <h2>Data Management</h2>
+            <iframe class="fill-slide" src="https://dougco.maps.arcgis.com/apps/opsdashboard/index.html#/ff6666bba97944fea3600c964c41a6f7"></iframe>
+          </section>
+          
+        </section>
+        <section data-background="img/2018/devsummit/bg-4.png">
+          <section>
+            <h2>Go-To-Market</h2>
+          </section>
+          <section data-markdown>
+            <textarea data-template>
+              ## Challenges
+              * Product-market fit
+              * Connections and leads
+              * The first sale
+              * Marketing
+            </textarea>
+          </section>
+          <section>
+            <div class="container">
+              <div class="col">
+                <h2>Esri</h2>
+                <ul>
+                  <li>Consultative approach</li>
+                  <li>Passionate & broad user community <br><span style="font-size: 2rem">(350k organizations, 75% of fortune 500)</span></li>
+                  <li>Trusted brand & <br> dozens of marketing channels</li>
+                </ul>
+              </div>
+              <div class="col">
+                <img class="pres-img" src="https://farm5.staticflickr.com/4319/35862350556_4e3fc564be_c.jpg" alt="2017 Esri User Conference">
+                <img class="pres-img" src="img/personal/uc.jpg" alt="2017 Esri User Conference 2">
+
+              </div>
+            </div>
+          </section>
+        </section>
+
+
+				<section data-markdown data-background="img/2018/devsummit/bg-final.jpg">
+					<textarea data-template>
+						<img src="img/esri-science-logo-white.png" style="margin: 0; background: none; border: 0px; box-shadow: none;" />
+					</textarea>
+				</section>
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+    <script src="js/d3.layout.cloud.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				// This height and width are here for the left-aligned title slide.
+				// If you do not want that, you can remove these two settings and
+				// the presentation will be closer to OOTB-Reveal.js:
+				width: '100%',
+				height: '100%',
+
+				history: true,
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+      });
+      
+      const mapframe = document.getElementById('mapframe');
+      let goToLocation;
+      mapframe.onload = function(){
+        const win = mapframe.contentWindow;
+        goToLocation = win.goToLocation;
+      }
+      
+      Reveal.addEventListener( 'fragmentshown', function( event ) {
+        const id = event.fragment.id;
+        if(id && goToLocation){
+          goToLocation(id);
+        }
+      } );
+
+      var color = d3.scale.ordinal()
+        .range(["#453C74","#7556B2", "#4574C1", "#B1F7E7", "#2F9FEA"]);
+
+      const startupList = ["DigitalOcean", "Docker", "Instacart", "BlueApron", "Juicero", "Cheddar", "Otto", "AirBnb", "Halo Top", "Noodle.ai", "Robinhood", "Ripple", "Coinbase", "Allbirds", "Aurora", "Zoox", "Pony.ai", "Foam", "Stripe", "Snapchat", "Twilio", "Palantir", "DroneDeploy", "Uber", "Lyft", "Bird", "Lyme"]
+      const startupFrequency = startupList.map(d => ({
+        text: d, size: 10 + Math.random() * 90, test: "haha"
+      }))
+
+      const buzzList = ["AgTech", "Bots", "Security", "Wearables", "IoT", "Drones", "Smart Cities", "GovTech", "Autonomy", "Machine Learning", "AI", "Blockchain", "micro-services", "AR", "VR", "e-commerce", "location", "BI", "Remote Sensing", "Sharing Economy", "Automation", "Targeting", "Ads", "Digital Twin", "Cryptocurrency"] 
+      const buzzFrequency = buzzList.map(d => ({
+        text: d, size: 10 + Math.random() * 90, test: "haha"
+      }))
+
+      const size = [900,600]
+      
+      var startupLayout = d3.layout.cloud()
+        .size(size)
+        .words(startupFrequency)
+        .padding(5)
+        .rotate(0)
+        .font("Avenir")
+        .fontSize(function(d) { return d.size; })
+        .on("end", (words) => draw(words, "#startups"))
+        .start();
+
+      var buzzLayout = d3.layout.cloud()
+        .size(size)
+        .words(buzzFrequency)
+        .padding(5)
+        .rotate(0)
+        .font("Avenir")
+        .fontSize(function(d) { return d.size; })
+        .on("end", (words) => draw(words, "#buzz"))
+        .start();
+
+      function draw(words, id) {
+        d3.select(id).append("svg")
+            .attr("width", size[0])
+            .attr("height", size[1])
+          .append("g")
+            .attr("transform", "translate(" + size[0] / 2 + "," + size[1] / 2 + ")")
+          .selectAll("text")
+            .data(words)
+          .enter().append("text")
+            .style("font-size", function(d) { return d.size + "px"; })
+            .style("font-family", "Avenir")
+            .attr("text-anchor", "middle")
+            .style("fill", function(d, i) { return color(i); })
+            .attr("transform", function(d) {
+              return "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")";
+            })
+            .text(function(d) { return d.text; })
+      }
+      
+
+		</script>
+	</body>
+</html>
